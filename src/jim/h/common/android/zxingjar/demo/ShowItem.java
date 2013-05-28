@@ -221,11 +221,18 @@ public class ShowItem extends Activity {
 	    
 	    Calendar beginTime = Calendar.getInstance();
 	    beginTime.set(y, mon, d, hour, min, sec);
-		startMillis = beginTime.getTimeInMillis();
+		//startMillis = beginTime.getTimeInMillis();
 		
-		Calendar endTime = Calendar.getInstance();
-	    endTime.set(y, mon, d, hour+1, min, sec);
-	    endMillis = endTime.getTimeInMillis();
+		GregorianCalendar startDate = new GregorianCalendar(y,mon,d,hour,min);
+		startMillis = startDate.getTimeInMillis();
+		
+		GregorianCalendar endDate = new GregorianCalendar(y,mon,d,hour+2,min);
+		endMillis = endDate.getTimeInMillis();
+		
+		//Calendar endTime = Calendar.getInstance();
+	    //endTime.set(y, mon, d, hour+2, min, sec);
+	    //endMillis = endTime.getTimeInMillis();
+	    
 	    System.out.println("Date start :"+startMillis);
 	    System.out.println("Date start :"+endMillis);
 	    
@@ -234,21 +241,22 @@ public class ShowItem extends Activity {
 		System.out.println("måned: " + mon + " " + d + " " + y + " " + hour + " " + min + " " + sec);
 		
 		
-        Intent intent = new Intent(Intent.ACTION_INSERT); 
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setType("vnd.android.cursor.item/event");
         intent.setData(CalendarContract.Events.CONTENT_URI); 
          
         
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION, sted);
         intent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, "Europe/Oslo");
-        intent.putExtra(CalendarContract.Events.DTSTART, startMillis);
-        intent.putExtra(CalendarContract.Events.DTEND, endMillis);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startMillis);
+        intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endMillis);
         
         intent.putExtra(CalendarContract.Events.TITLE, eventname);
         intent.putExtra(CalendarContract.Events.DESCRIPTION, description);
         
         /*intent.putExtra(
               CalendarContract.EXTRA_EVENT_BEGIN_TIME, 
-              cal.getTime().getTime()); 
+              cal.getTime().getTime());       
         intent.putExtra(
               CalendarContract.EXTRA_EVENT_END_TIME, 
               cal.getTime().getTime() + 600000); 

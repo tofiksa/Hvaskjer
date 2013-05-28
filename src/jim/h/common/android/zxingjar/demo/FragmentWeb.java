@@ -28,7 +28,7 @@ public class FragmentWeb extends Fragment {
 	    webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);   
 	    webView.getSettings().setAllowFileAccess(true); 
 	    webView.getSettings().setDomStorageEnabled(true);
-	    webView.loadUrl("http://www.hioa.no/Om-HiOA/Avdeling-for-ressursutvikling-og-infrastruktur/IKT");
+	    webView.loadUrl("http://rif.hioa.no/Solr");
 	
 	    return v;
     }

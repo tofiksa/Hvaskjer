@@ -44,7 +44,7 @@ public class AllCalendarActivity extends ListFragment {
         ArrayList<HashMap<String, String>> productsList;
         ArrayList<HashMap<String, String>> newsFeed;
         
-        private final static String Host = "http://solr.hioa.no/solr/nor-NO";
+        private final static String Host = "http://solr.hioa.no/solr";
         private final static String eZStudtag = "&fq=ezf_df_tags:KalenderStudentliv";
         private final static String eZTilsatttag = "&fq=ezf_df_tags:KalenderFortilsatte";
         private final static String eZLSBtag = "&fq=ezf_df_tags:KalenderLSB";

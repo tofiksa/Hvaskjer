@@ -27,8 +27,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-
-
 public class HvaSkjer extends SherlockFragmentActivity {
     
     Button btnViewProducts;

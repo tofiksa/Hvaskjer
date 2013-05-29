@@ -220,13 +220,13 @@ public class ShowItem extends Activity {
 	    long endMillis = 0;
 	    
 	    Calendar beginTime = Calendar.getInstance();
-	    beginTime.set(y, mon, d, hour, min, sec);
-		//startMillis = beginTime.getTimeInMillis();
+	    beginTime.set(y, (d-1), mon, hour, min, sec);
+		startMillis = beginTime.getTimeInMillis();
 		
-		GregorianCalendar startDate = new GregorianCalendar(y,mon,d,hour,min);
-		startMillis = startDate.getTimeInMillis();
+		GregorianCalendar startDate = new GregorianCalendar(y,d,mon,hour,min);
+		//startMillis = startDate.getTimeInMillis();
 		
-		GregorianCalendar endDate = new GregorianCalendar(y,mon,d,hour+2,min);
+		GregorianCalendar endDate = new GregorianCalendar(y,(d-1),mon,(hour+2),min);
 		endMillis = endDate.getTimeInMillis();
 		
 		//Calendar endTime = Calendar.getInstance();
@@ -238,7 +238,7 @@ public class ShowItem extends Activity {
 	    
 		
         //cal.setTime(new Date());
-		System.out.println("måned: " + mon + " " + d + " " + y + " " + hour + " " + min + " " + sec);
+		System.out.println("måned: " + d + " " + mon + " " + y + " " + hour + " " + min + " " + sec);
 		
 		
         Intent intent = new Intent(Intent.ACTION_INSERT);

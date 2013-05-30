@@ -44,7 +44,7 @@ public class AllProductsActivity extends ListFragment {
         // url to get all products list
         //private static String url_all_products = "http://statisk.hio.no/android/get_all_products.php";
         private static String url_all_products = 
-        		"http://solr.hioa.no:8983/solr/nor-NO/select?q=ezf_df_tags:IKT-driftsmeldinger&" +
+        		"http://solr.hioa.no/solr/select?q=ezf_df_tags:IKT-driftsmeldinger&" +
         		"fq=meta_language_code_ms:nor-NO&fq=meta_class_name_ms:Artikkel&rows=100&wt=json&" +
         		"fq=meta_is_invisible_b:false&indent=on&mitHeader=true&sort=meta_published_dt+desc";
         // JSON Node names

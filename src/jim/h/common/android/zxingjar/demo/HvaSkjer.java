@@ -42,18 +42,7 @@ public class HvaSkjer extends SherlockFragmentActivity {
     static Activity mActivity;
     public String mytext;
     
-    
-    
-    
-    
-    //private Handler handler = new Handler();
-    
-    /*TextView format=null;
-	TextView contents=null;*/
-    
-    
-    
-   
+  
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getSupportMenuInflater();
@@ -107,8 +96,7 @@ public class HvaSkjer extends SherlockFragmentActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         
         mViewPager = new ViewPager(this);
-        mViewPager.setId(R.id.showHome);
-        
+        mViewPager.setId(R.id.showHome);        
         setContentView(mViewPager);
         
         ActionBar bar = getSupportActionBar();
@@ -119,16 +107,12 @@ public class HvaSkjer extends SherlockFragmentActivity {
         
         mTabsAdapter = new TabsAdapter(this, mViewPager);
 
-        /*mTabsAdapter.addTab(bar.newTab().setText("IKT Driftmeldinger"),
-        		AllProductsActivity.class, null);*/
+        
+        mTabsAdapter.addTab(bar.newTab().setText("Avd.for IKT"),
+        		AllProductsActivity.class, null);
         
         mTabsAdapter.addTab(bar.newTab().setText("Hva skjer?"),
         		AllCalendarActivity.class, null);
-        /*
-        mTabsAdapter.addTab(bar.newTab().setText("Ny vare"),
-                NewProductActivity.class, null);*/
-        mTabsAdapter.addTab(bar.newTab().setText("Avd.for IKT"),
-        		FragmentWeb.class, null);
 
         this.mytext = getIntent().getStringExtra("barcode");
         
@@ -171,10 +155,11 @@ public class HvaSkjer extends SherlockFragmentActivity {
 		
 		public void addTab(ActionBar.Tab tab, Class<?> clss, Bundle args) {
 		    TabInfo info = new TabInfo(clss, args);
-		    tab.setTag(info);
 		    tab.setTabListener(this);
-		    mTabs.add(info);
 		    mActionBar.addTab(tab);
+		    tab.setTag(info);		    		    
+		    mTabs.add(info);
+		    
 		    notifyDataSetChanged();
 		}
 		
